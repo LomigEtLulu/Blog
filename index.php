@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="fr">
     <head>
+        <style> 
+            h2{
+                text-align: center;
+            }
+
+        </style>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="style.css" />
         <title>Mon Blog</title>
@@ -9,7 +15,7 @@
         <div id="global">
             <header>
                 <a href="index.php"><h1 id="titreBlog">Mon Blog</h1></a>
-                <p>Je vous souhaite la bienvenue sur ce modeste blog.</p>
+                <h2>Je vous souhaite la bienvenue sur ce modeste blog.</h2>
             </header>
             <div id="contenu">
                 <?php
