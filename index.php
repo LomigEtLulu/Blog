@@ -14,7 +14,8 @@
     <body>
         <div id="global">
             <header>
-                <a href="index.php"><h1 id="titreBlog">Mon Blog</h1></a>
+                <a href="index.php"><h1 id="titreBlog">Mon Blog Amélioré</h1></a>
+
                 <h2>Je vous souhaite la bienvenue sur ce modeste blog.</h2>
             </header>
             <div id="contenu">
