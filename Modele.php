@@ -11,18 +11,7 @@
                 $billets = $bdd->query('select idBillet as id, dateBillet as date,'
                         . ' titreBillet as titre, contenuBillet as contenu from BILLET'
                         . ' order by idBillet desc');
-                $posts=[];
-                        while (($row = $billets->fetch())) {
-                                $post= [
-                                        'idBillet'=> $row['id'],
-                                        'dateBillet'=> $row['date'],
-                                        'titreBillet'=> $row['titre'],
-                                        'contenuBillet'=> $row['contenu'],
-                                ];
-                                $posts[] = $post;    
-                        }
-
-
+                $posts = $billets->fetchAll();
                         return $posts;
         }
 
@@ -30,38 +19,21 @@
                 $bdd = getBdD();
                 $billet = $bdd->prepare('select idBillet as id, dateBillet as date,'
                         . ' titreBillet as titre, contenuBillet as contenu from BILLET'
-                        . ' where id= ?');
+                        . ' where idBillet= ?');
+                $billet->bindParam(':id',$id,PDO::PARAM_INT);
                 $billet -> execute([$id]);
                 $row = $billet->fetch();
-                $post = [
-                        'date'=> $row['dateBillet'],
-                        'id'=> $row['idBillet'],
-                        'titre'=> $row['titreBillet'],
-                        'contenu'=> $row['contenuBillet'],
-                ];
-                        return $post;
+                        return $row;
         }
 
         function getCommentaires($id){
                 $bdd =getBdD();
-                $billet= $bdd->prepare('select idBillet as id, idCommentaire as idCom,'
-                        . ' dateCommentaire as dateCom, auteurCommentaire as autCom,' 
-                        . ' contenuCommentaire as contCom from COMMENTAIRE where id =? order by dateCommentaire desc');
-                $billet ->execute($id);
-                $commentaires=[];
-                        while(($row = $billet->fetch())){
-                                $commentaire =[
-                                        'idBillet'=>$row['id'],
-                                        'idCommentaire'=>$row['idCom'],
-                                        'dateCommentaire'=>$row['dateCom'],
-                                        'auteurCommentaire'=>$row['autCom'],
-                                        'contenuCommentaire'=>$row['contCom'],
-
-                                ];
-                                $commentaires[]= $commentaire;
-                        }
-
-                        return $commentaires;
+                $commentaire= $bdd->prepare('select idBillet as id, idCommentaire as idCom,'
+                        . ' dateCommentaire as dateCom, auteurCommentaire as auteurCom,' 
+                        . ' contenuCommentaire as contenuCom from COMMENTAIRE where idBillet =?');
+                $commentaire->bindParam(':id',$id,PDO::PARAM_INT);
+                $commentaire ->execute([$id]);
+                        return $commentaire->fetchAll();
 
            
         }
