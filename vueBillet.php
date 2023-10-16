@@ -14,10 +14,10 @@
 ?>
         <article>
             <header>
-                <h1 class="titre"> <?=$commentaire['auteurCom'] ?></h1>
+                <h1 class="titre"> <?=$commentaire['auteur'] ?></h1>
                 <time><?=$commentaire['dateCom'] ?></time>
             </header>
-            <p><?=$commentaire=['contenuCom'] ?></p>
+            <p><?=$commentaire['contenu'] ?></p>
         </article>
         <hr />
 

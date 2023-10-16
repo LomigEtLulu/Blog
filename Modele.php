@@ -29,8 +29,8 @@
         function getCommentaires($id){
                 $bdd =getBdD();
                 $commentaire= $bdd->prepare('select idBillet as id, idCommentaire as idCom,'
-                        . ' dateCommentaire as dateCom, auteurCommentaire as auteurCom,' 
-                        . ' contenuCommentaire as contenuCom from COMMENTAIRE where idBillet =?');
+                        . ' dateCommentaire as dateCom, auteurCommentaire as auteur,' 
+                        . ' contenuCommentaire as contenu from COMMENTAIRE where idBillet =?');
                 $commentaire->bindParam(':id',$id,PDO::PARAM_INT);
                 $commentaire ->execute([$id]);
                         return $commentaire->fetchAll();
