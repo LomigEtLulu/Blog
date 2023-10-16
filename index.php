@@ -1,12 +1,12 @@
-<?php require 'Controleur.php';
+<?php require 'Controleur/Controleur.php';
 
     try {
         if (isset($_GET['action'])){
             if ($_GET['action'] == 'billet'){
-                $idBillet = $_GET['id'];
+                $idBillet = $_GET['idBillet'];
                 unBillet($idBillet);
             }
-            
+
             else{
                 erreur("Action non valide");
             }
