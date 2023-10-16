@@ -8,7 +8,11 @@
                 <time><?= $billet['date'] ?></time>
             </header>
             <p><?=$billet['contenu'] ?></p>
+<<<<<<< HEAD:vueAccueil.php
             <em><a href="index.php?action=billet&id=<?=$id?>">Commentaires</a></em>
+=======
+            <em><a href="index.php ?action=billet&id=<?=$id?>">Commentaires</a></em>
+>>>>>>> MVC++:Vue/vueAccueil.php
         </article>
         <hr />
     <?php endforeach;
