@@ -3,12 +3,18 @@
     try {
         if (isset($_GET['action'])){
             if ($_GET['action'] == 'billet'){
-                $idBillet = $_GET['idBillet'];
-                unBillet($idBillet);
+                if (isset($_GET['id'])){
+                    $idBillet = $_GET['id'];
+                    unBillet($idBillet);
+                }
+                else{
+                    erreur("Identifiant de billet non défini");
+                }
+                
             }
 
             else{
-                erreur("Action non valide");
+                erreur("Action non validé");
             }
 
         }
