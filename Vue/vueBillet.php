@@ -11,11 +11,12 @@
 
 <?php
     foreach ($commentaires as $commentaire):
+        $id = $commentaire['id'];
 ?>
         <article>
             <header>
                 <h1 class="titre"> <?=$commentaire['auteur'] ?></h1>
-                <time><?=$commentaire['dateCom'] ?></time>
+                <time><?=$commentaire['dateCom'] ?></tim e>
             </header>
             <p><?=$commentaire['contenu'] ?></p>
         </article>
